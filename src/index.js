@@ -11,14 +11,16 @@ const rootEl = document.getElementById('root')
 const render = () => ReactDOM.render(
   <div>
   <Counter
-    value={store1.getState()}
+    value={store1.getState().value}
     onIncrement={() => store1.dispatch({ type: 'INCREMENT' })}
     onDecrement={() => store1.dispatch({ type: 'DECREMENT' })}
+    onIncrementValueUpdate={(textValue) => store1.dispatch({type: 'UPDATECOUNTER', text: textValue})}
   />
    <Counter
-    value={store2.getState()}
+    value={store2.getState().value}
     onIncrement={() => store2.dispatch({ type: 'INCREMENT' })}
     onDecrement={() => store2.dispatch({ type: 'DECREMENT' })}
+    onIncrementValueUpdate={(textValue) => store2.dispatch({type: 'UPDATECOUNTER', text: textValue})}
   />
   </div>,
   rootEl

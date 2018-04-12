@@ -19,7 +19,7 @@ class Counter extends Component {
   }
 
   render() {
-    const { value, onIncrement, onDecrement } = this.props
+    const { value, onIncrement, onDecrement, incrementValue, onIncrementValueUpdate } = this.props
     return (
       <p>
         Clicked: {value} times
@@ -39,6 +39,11 @@ class Counter extends Component {
         <button onClick={this.incrementAsync}>
           Increment async
         </button>
+        <input
+        type="text"
+        value={incrementValue}
+        onChange={(event) => onIncrementValueUpdate(event.target.value)}
+        />
       </p>
     )
   }
